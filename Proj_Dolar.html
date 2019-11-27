@@ -18,7 +18,7 @@
         var replac3 = dados.bid.replace(",",".");
         var valor = parseFloat(replac3);
         document.getElementById("dolar").innerHTML= valor;
-        convercao = entrada * valor;
+        convercao = entrada / valor;
         document.getElementById("valorconvertido").innerHTML= "Valor em $: $" + convercao;
     }
     </script>
