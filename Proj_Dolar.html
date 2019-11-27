@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" type="text/css" href="estilo.css">
+    <meta charset="utf-8">
+    <title>Conversor</title>
+    <script>
+    function enviar(){
+        var request = new XMLHttpRequest();
+        request.open("GET", "http://economia.awesomeapi.com.br/all/usd", false);
+        request.send()
+        var entrada;
+        entrada = document.getElementById("entrada").value;
+        var converte;
+        var valor_convertido;
+        valor_convertido = request.responseText;
+        var dados = JSON.parse(valor_convertido).USD;
+        var replac3 = dados.bid.replace(",",".");
+        var valor = parseFloat(replac3);
+        document.getElementById("dolar").innerHTML= valor;
+        convercao = entrada * valor;
+        document.getElementById("valorconvertido").innerHTML= "Valor em $: $" + convercao;
+    }
+    </script>
+    </head>
+  <body id=zzz>
+    <div id=container>
+    <header id=topo>
+        <h1 style="color:White; background-color:black;">Conversor Real -> Dolar </h1>
+       <nav id=mainmenu>
+        </nav>
+        <h2>Dolar atual:</h2><h2 id="dolar"></h2>    
+        
+        <h2>Digite o valor em real (somente Numeros): </h2>
+        
+        </header>
+            <br>
+    <article>
+<input min="0" id="entrada" type="number" autofocus = "" placeholder="Insira aqui o valor">
+        <button onclick="enviar()">Converter</button> 
+<br>
+        <br>
+        <h2 id="valorconvertido"></h2>
+</article>
+        <br>
+ <footer id=footer>
+            <br>
+            <p>Matheus Henrique Cardinalli Ferreira - 31745377</p>
+            <p>Lucas Keiti Arakaki - 3175501</p>
+            <br>
+</footer>
+      </div>
+    </body>
+</html>
